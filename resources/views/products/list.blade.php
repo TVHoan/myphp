@@ -1,5 +1,9 @@
 <div >
     @foreach ($product as $item)
-        <p>name: {{$item->name}} price: {{$item->price}}</p>
+    <ul>
+        <li> #{{$loop->iteration}}  name: {{$item->name}} price: {{$item->price}}</li>
+    </ul>
+
     @endforeach
+
 </div>

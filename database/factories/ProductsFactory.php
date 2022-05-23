@@ -1,11 +1,17 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\products;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProductsFactory extends Factory
-{
+{  /**
+    * The name of the factory's corresponding model.
+    *
+    * @var string
+    */
+    protected $model = products::class;
     /**
      * Define the model's default state.
      *
@@ -14,7 +20,8 @@ class ProductsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'price' => $this->faker->decimal,
         ];
     }
 }
