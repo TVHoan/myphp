@@ -1,0 +1,37 @@
+/* .icon{
+    margin: 30px;
+
+} */
+
+.nav-link:hover 
+{
+    background-color:aqua;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: aqua;
+}
+.banner
+{
+  
+ background-image: url(1.jpg);
+ min-height: 300px;
+ background-color: azure;
+   
+}
+.navbar-primary .navbar-toggler-icon
+{
+    border: solid 1px aqua;
+    
+}
+button.navbar-toggler 
+{
+    border: solid 1px black;
+}
+.fa-sliders-h-square
+{
+    background-color: aqua;
+}
+.line-contact
+{
+    margin: 0px 0px 20px 20px ;
+}

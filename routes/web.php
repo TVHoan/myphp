@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostPublic;
+use App\Http\Controllers\Home;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +22,15 @@ use App\Http\Controllers\PostPublic;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);user
+// });
+Route::get('/', [Home::class,'index'])->name('home');
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware(['auth', 'verified','admin'])->name('dashboard');
 
 require __DIR__.'/auth.php';
