@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use App\Models\Access;
+use App\Models\profile;
 use App\Models\post;
 
 class User extends Authenticatable
@@ -53,6 +54,32 @@ class User extends Authenticatable
    public function access(): HasOne
    {
        return $this->hasOne(Access::class, 'id', 'access_id');
+   }
+
+   public function profile(): HasOne
+   {
+       return $this->hasOne(profile::class, 'id', 'profile_id');
+   }
+
+   /**
+    * Get all of the comments for the User
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+   public function comments()
+   {
+       return $this->hasMany(comment::class);
+   }
+
+
+   /**
+    * Get all of the comments for the User
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+   public function posts()
+   {
+       return $this->hasMany(post::class);
    }
 /**
  * Get the user that owns the User

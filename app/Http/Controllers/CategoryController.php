@@ -19,6 +19,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = category::paginate(10);
+        
         return view('category.list',['category'=>$category]);
     }
 
@@ -29,7 +30,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.form');
+        return view('category.create');
     }
 
     /**
@@ -52,7 +53,7 @@ class CategoryController extends Controller
     return redirect()->back()->withErrors($th)->withInput();    
          }
             
-            return view('category.show',['category'=>$category]);
+            return view('category.list');
     }
 
     /**
@@ -82,7 +83,7 @@ class CategoryController extends Controller
         $category =   category::find($id);
        
         
-        return view('category.form',['category'=>$category]);
+        return view('category.update',['category'=>$category]);
         
     }
 
@@ -120,6 +121,7 @@ class CategoryController extends Controller
         $item = category::find($category->id);
 
         $item->delete();
+        $item->save();
         return  redirect('category');
     }
 }

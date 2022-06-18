@@ -16,21 +16,21 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->boolean('active')->default(false);
             $table->longText('title');
             $table->string('slug')->unique();
             $table->integer('view_number')->nullable();
+            $table->integer('like')->nullable();
+            $table->integer('share')->nullable();
             $table->string('image')->nullable();
             $table->longText('summary')->nullable();
             $table->longText('content')->nullable();
-            $table->foreignId('category_id')
-                    ->constrained('categories')
-                    ->onDelete('cascade')
-                    ->nullable();
-            $table->foreignId('user_id')
-                    ->constrained('users')
-                    ->onDelete('cascade')
-                    ->nullable();
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

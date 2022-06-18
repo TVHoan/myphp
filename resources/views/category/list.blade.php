@@ -44,7 +44,7 @@
     </div>
 
 </div>
-{{-- 
+
 <script>$(document).ready(function(){
     $("#delete").click(function(){
         
@@ -59,7 +59,7 @@
       $("#modaldelete").hide();
     });
   });
-   </script> --}}
+   </script>
 
 <div class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

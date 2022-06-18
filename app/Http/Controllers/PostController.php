@@ -21,6 +21,7 @@ class PostController extends Controller
     public function index()
     {
         $post = post::paginate(3);
+        
         return view('post.list',['post'=>$post]);
     }
 
@@ -32,7 +33,7 @@ class PostController extends Controller
     public function create()
     {        $category =  category::all();
         //
-        return view('post.form',['category'=>$category]);
+        return view('post.create',['category'=>$category]);
     }
 
     /**
@@ -105,7 +106,7 @@ return  redirect('post');
         $curentpost =   post::find($id);
         $category =  category::all();
         
-        return view('post.form',['post'=>$curentpost,'category'=>$category]);
+        return view('post.update',['post'=>$curentpost,'category'=>$category]);
     }
 
     /**

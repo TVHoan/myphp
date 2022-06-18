@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../opt/lampp/htdocs/project"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../frontend/blog"
+		},
+		{
+			"path": "../../../blog"
+		}
+	],
+	"settings": {}
+}

@@ -1,25 +1,11 @@
 @extends('layouts.head_admin')
 @section('content')
 <div class="container">
-  @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
     <form id="save-content-form"
-    @if (isset($post))
     method="POST" 
     action={{route('post.update',[$post->id])}}
    
-     
-    @else
-    method="POST"
-    action={{route('post.store')}}
-    @endif
       enctype="multipart/form-data">
         @csrf
       @if (isset($post))

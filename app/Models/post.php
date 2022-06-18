@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\category;
+use App\Models\comment;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use \Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\User;
@@ -27,9 +28,21 @@ public function category(): BelongsTo
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function user(): HasOne
+
+         
+        public function user()
+        {
+            return $this->belongsTo(User::class, 'user_id', 'id');
+        }
+    
+    /**
+     * Get all of the comments for the post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->hasMany(comment::class);
     }
 
 }

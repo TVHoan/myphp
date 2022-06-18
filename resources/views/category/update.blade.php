@@ -1,25 +1,12 @@
 @extends('layouts.head_admin')
 @section('content')
 <div class="container">
-  @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
     <form id="save-content-form"
-    @if (isset($category))
+
     method="POST" 
     action={{route('category.update',[$category->id])}}
    
-     
-    @else
-    method="POST"
-    action={{route('category.store')}}
-    @endif
       enctype="multipart/form-data">
         @csrf
       @if (isset($category))
